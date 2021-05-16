@@ -4,6 +4,7 @@ import 'package:news_app/services/services.dart';
 
 class NewsController extends GetxService {
   var newsList = List<Article>().obs;
+  var isLoading = true.obs;
 
   @override
   void onInit() {
@@ -12,9 +13,14 @@ class NewsController extends GetxService {
   }
 
   void fetchNews() async {
-    var news = await Services.fetchNews();
-    if (news != null) {
-      newsList.value = news;
+    try {
+      isLoading(true);
+      var news = await Services.fetchNews();
+      if (news != null) {
+        newsList.value = news;
+      }
+    } finally {
+      isLoading(false);
     }
   }
 }

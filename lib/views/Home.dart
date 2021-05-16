@@ -13,13 +13,22 @@ class _HomePageState extends State<HomePage> {
   NewsController newsController = Get.put(NewsController());
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Column(
-          children: [
-            Expanded(
-              child: Obx(
-                () => PageView.builder(
+    return Scaffold(
+      body: Column(
+        children: [
+          Expanded(
+            child: Obx(() {
+              if (newsController.isLoading.value)
+                return Container(
+                    color: Colors.black87,
+                    child: Center(
+                        child: CircularProgressIndicator(
+                      valueColor:
+                          new AlwaysStoppedAnimation<Color>(Colors.white),
+                      backgroundColor: Colors.blue,
+                    )));
+              else
+                return PageView.builder(
                   scrollDirection: Axis.vertical,
                   itemCount: newsController.newsList.length,
                   itemBuilder: (context, index) {
@@ -39,11 +48,10 @@ class _HomePageState extends State<HomePage> {
                       ),
                     );
                   },
-                ),
-              ),
-            )
-          ],
-        ),
+                );
+            }),
+          )
+        ],
       ),
     );
   }

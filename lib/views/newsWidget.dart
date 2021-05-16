@@ -114,6 +114,6 @@ class NewsWidget extends StatelessWidget {
     String tempPath = (await getTemporaryDirectory()).path;
     File file = File('$tempPath/image.png');
     await file.writeAsBytes(uint8List);
-    await Share.shareFiles([file.path]);
+    await Share.shareFiles([file.path], text: news.url);
   }
 }

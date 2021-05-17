@@ -2,7 +2,7 @@
 
 # NewsIt
 
-Read latest breaking news from your major sources with NewsIt
+Read latest breaking news from major sources with NewsIt
 
 Read quick updates of major events happening around you in a crisp format.
 

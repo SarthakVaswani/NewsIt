@@ -5,7 +5,7 @@
 
 Read latest breaking news from your major sources with NewsIt
 
-Read quick updates of major events happening aroud you in a crisp format.
+Read quick updates of major events happening around you in a crisp format.
 
 Read full article within the app just by a click !
 
